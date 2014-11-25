@@ -9,14 +9,14 @@ def fun2(x):
 	return abs(x).sum(axis=1)+abs(x).prod(axis=1)
 
 def fun3(x):
-	suma = []
+	suma = zeros(len(x))
 	for i in range(len(x)):
 		aux=0
 		for j in range (len(x[i])):
 			for k in range (j+1):
 				aux += x[i][k]
-		suma.append(aux**2)
-	return xd
+			suma[i]+=(aux*aux).sum(axis=0)
+	return suma
 
 w=0.7
 c1=1.4
@@ -27,8 +27,8 @@ gmax=10
 ndims=30
 nparts=5
 
-lS=10
-lI=-10
+lS=100
+lI=-100
 
 x = random.random((nparts,ndims))
 x = x*(lS-lI)+lI
