@@ -21,8 +21,8 @@ gmax=10
 ndims=30
 nparts=5
 
-lS=5
-lI=-5
+lS=100
+lI=-100
 
 x = random.random((nparts,ndims))
 x = x*(lS-lI)+lI
@@ -63,6 +63,6 @@ while i<=gmax:
 	grafica.append(fx_gbest)
 	i+=1
 
-plt.plot(range(gmax+1),grafica)
+plt.scatter(range(gmax+1),grafica)
 #print (gbest," : ",fx_gbest)
 plt.show()
