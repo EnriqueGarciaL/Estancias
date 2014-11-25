@@ -22,10 +22,10 @@ w=0.7
 c1=1.4
 c2=1.4
 
-gmax=10
+gmax=2000
 
 ndims=30
-nparts=5
+nparts=40
 
 lS=100
 lI=-100
