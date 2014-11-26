@@ -23,12 +23,12 @@ lI = -10
 dims = 2
 parts = 5
 
-gmax=10
+gmax=30
 
 x = random.random((parts,dims))
 x = x*(lS-lI)+lI
 u=zeros((parts,dims))
-
+fx_best = []
 while nv<gmax:
     for i in range(len(x)):
         vec = rand(len(x))
@@ -38,13 +38,18 @@ while nv<gmax:
         jr = random.randint(0,dims)
         for j in range(dims):
             if random.random() < CR or j==jr:
-                u[i][j] = x[r3][j] + F * (x[r1][j]-x[r2][j])
+                u[i] = x[r3][j] + F * (x[r1][j]-x[r2][j])
             else:
                 u = x.copy()
         fx=evaluate(x)
         fu=evaluate(u)
         if fu[i] <= fx[i]:
-            x[i] = u[i]
+            x[i] = u[i].copy()
         else:
-            x[i]=x[i]
+            x[i]=x[i].copy()
+    fx_best.append(fx)
     nv+=1
+print(fx)
+
+for z in range (len(fx_best)):
+    print(fx_best[z])
