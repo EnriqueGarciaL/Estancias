@@ -26,7 +26,7 @@ def ejecute(lS,lI,fun):
     F = .9
     dims = 2
     parts = 5
-    gmax=30
+    gmax=10
 
     x = random.random((parts,dims))
     x = x*(lS-lI)+lI
@@ -51,9 +51,11 @@ def ejecute(lS,lI,fun):
             else:
                 x[i]=x[i].copy()
         nv+=1
-    escribir(fx)
+    #escribir(fx)
+    for x in range(len(fx)):
+        print(str(fx[x]))
 
 def main():
-    ejecute(10,-10,evaluate)
+    ejecute(5,-5,evaluate)
 
 main()
