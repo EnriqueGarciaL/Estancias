@@ -24,9 +24,9 @@ def ejecute(lS,lI,fun):
     nv=0
     CR = .5
     F = .9
-    dims = 2
-    parts = 5
-    gmax=10
+    dims = 30
+    parts = 30
+    gmax=1000
 
     x = random.random((parts,dims))
     x = x*(lS-lI)+lI
@@ -38,12 +38,12 @@ def ejecute(lS,lI,fun):
             r1 = vec[0]
             r2 = vec[1]
             r3 = vec[2]
-            jr = random.randint(0,dims)
+            jr = random.randint(dims)
             for j in range(dims):
                 if random.random() < CR or j==jr:
                     u[i] = x[r3][j] + F * (x[r1][j]-x[r2][j])
                 else:
-                    u = x.copy()
+                    u[i][j] = x[i][j]
             fx=fun(x)
             fu=fun(u)
             if fu[i] <= fx[i]:
@@ -56,6 +56,6 @@ def ejecute(lS,lI,fun):
         print(str(fx[x]))
 
 def main():
-    ejecute(5,-5,evaluate)
+    ejecute(100,-100,evaluate)
 
 main()

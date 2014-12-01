@@ -9,8 +9,6 @@
 
 from subprocess import Popen, PIPE
 
-result = []
-
 def escribir(fx):
     index=[]
     file = open("datos.txt","a+")
@@ -25,13 +23,17 @@ def escribir(fx):
     for z in range (len(index)):
         file.write(index[z])
     file.write("\n")
-
     file.close()
 
+def main():
+    for i in range(30):
+        result = []
+        output = Popen(['python', 'ED.py'], stdout=PIPE)
+        salida = output.stdout.read()
+        result.append(salida)
+        output.stdout.close();
+        escribir(str(result))
+    pip = Popen(['python', 'boxp.py'], stdout=PIPE)
+    pip=pip.communicate()
 
-
-output = Popen(['python', 'ED.py'], stdout=PIPE)
-salida = output.stdout.read()
-result.append(salida)
-output.stdout.close();
-escribir(str(result))
+main()
