@@ -51,7 +51,7 @@ def ejecute(lS,lI,fun):
             else:
                 x[i]=x[i].copy()
         nv+=1
-    #escribir(fx)
+    # escribir(fx)
     for x in range(len(fx)):
         print(str(fx[x]))
 
