@@ -64,5 +64,5 @@ while i<=gmax:
 	i+=1
 
 plt.scatter(range(gmax+1),grafica)
-#print (gbest," : ",fx_gbest)
+print (gbest," : ",fx_gbest)
 plt.show()

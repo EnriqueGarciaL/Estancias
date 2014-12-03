@@ -26,7 +26,7 @@ def escribir(fx):
     file.close()
 
 def main():
-    for i in range(30):
+    for i in range(1):
         result = []
         output = Popen(['python', 'ED.py'], stdout=PIPE)
         salida = output.stdout.read()
